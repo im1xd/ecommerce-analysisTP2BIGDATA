@@ -1,0 +1,115 @@
+Microsoft Windows [version 10.0.22631.5909]
+(c) Microsoft Corporation. Tous droits réservés.
+
+C:\Users\DELL>cd C:\MongoDB\bin
+
+C:\MongoDB\bin>mongo.exe
+'mongo.exe' n’est pas reconnu en tant que commande interne
+ou externe, un programme exécutable ou un fichier de commandes.
+
+C:\MongoDB\bin>mongo.exe
+'mongo.exe' n’est pas reconnu en tant que commande interne
+ou externe, un programme exécutable ou un fichier de commandes.
+
+C:\MongoDB\bin>mongosh.exe
+'mongosh.exe' n’est pas reconnu en tant que commande interne
+ou externe, un programme exécutable ou un fichier de commandes.
+
+C:\MongoDB\bin>mongosh
+'mongosh' n’est pas reconnu en tant que commande interne
+ou externe, un programme exécutable ou un fichier de commandes.
+
+C:\MongoDB\bin>dir
+ Le volume dans le lecteur C n’a pas de nom.
+ Le numéro de série du volume est C8E7-118B
+
+ Répertoire de C:\MongoDB\bin
+
+11/12/2025  09:11 AM    <DIR>          .
+11/12/2025  09:11 AM    <DIR>          ..
+11/12/2025  09:11 AM             1,558 Install-Compass.ps1
+11/12/2025  09:11 AM        77,217,280 mongod.exe
+11/12/2025  09:11 AM     1,217,785,856 mongod.pdb
+11/12/2025  09:11 AM        50,398,720 mongos.exe
+11/12/2025  09:11 AM       815,575,040 mongos.pdb
+11/12/2025  09:11 AM        25,314,320 vc_redist.x64.exe
+               6 fichier(s)    2,186,292,774 octets
+               2 Rép(s)  215,965,921,280 octets libres
+
+C:\MongoDB\bin>C:\MongoDB\mongosh
+'C:\MongoDB\mongosh' n’est pas reconnu en tant que commande interne
+ou externe, un programme exécutable ou un fichier de commandes.
+
+C:\MongoDB\bin>cd..
+
+C:\MongoDB>cd mongosh
+
+C:\MongoDB\mongosh>cd bin
+
+C:\MongoDB\mongosh\bin>mongosh.exe
+Current Mongosh Log ID: 691443b03e3e9c999d63b111
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.9
+Using MongoDB:          8.2.1
+Using Mongosh:          2.5.9
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+test> use info
+switched to db info
+info> use info
+already on db info
+info> db.createCollection("produits")
+{ ok: 1 }
+info> db.produits.insertOne({
+  nom: "Macbook Pro",
+  fabriquant: "Apple",
+  prix: 11435.99,
+  options: ["Intel Core i5", "Retina Display", "Long life battery"]
+})
+{
+  acknowledged: true,
+  insertedId: ObjectId('691443f03e3e9c999d63b112')
+}
+info> db.produits.insertOne({
+  nom: "Macbook Air",
+  fabriquant: "Apple",
+  prix: 125794.73,
+  ultrabook: true,
+  options: ["Intel Core i7", "SSD", "Long life battery"]
+})
+{
+  acknowledged: true,
+  insertedId: ObjectId('691443f83e3e9c999d63b113')
+}
+info> db.produits.insertOne({
+  nom: "Thinkpad X230",
+  fabriquant: "Lenovo",
+  prix: 114358.74,
+  ultrabook: true,
+  options: ["Intel Core i5", "SSD", "Long life battery"]
+})
+{
+  acknowledged: true,
+  insertedId: ObjectId('691443fc3e3e9c999d63b114')
+}
+info> db.produits.find()
+[
+  {
+    _id: ObjectId('691443f03e3e9c999d63b112'),
+    nom: 'Macbook Pro',
+    fabriquant: 'Apple',
+    prix: 11435.99,
+    options: [ 'Intel Core i5', 'Retina Display', 'Long life battery' ]
+  },
+  {
+    _id: ObjectId('691443f83e3e9c999d63b113'),
+    nom: 'Macbook Air',
+    fabriquant: 'Apple',
+    prix: 125794.73,
+    ultrabook: true,
+    options: [ 'Intel Core i7', 'SSD', 'Long life battery' ]
+  }
+]
+info> let p = db.produits.findOne({nom: "Thinkpad X230"})
+db.produits.deleteOne({_id: p._id})
+{ acknowledged: true, deletedCount: 1 }
